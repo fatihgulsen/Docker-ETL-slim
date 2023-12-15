@@ -13,6 +13,7 @@ RUN date
 RUN apt-get update && apt-get install -y \
     software-properties-common
 RUN mkdir -p /usr/share/man/man1
+COPY ./jars/ /opt/bitnami/spark/jars/
 # RUN apt-get update && apt-get install -y default-jdk && apt-get clean
 # COPY requirements.txt requirements.txt
 # RUN pip install --no-cache-dir -r requirements.txt

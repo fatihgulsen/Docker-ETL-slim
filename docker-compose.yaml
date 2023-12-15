@@ -177,7 +177,7 @@ services:
       - AIRFLOW__LOGGING__ENCRYPT_S3_LOGS=False
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__SECRETS__USE_CACHE=true
-      - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
+      # - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
     networks:
       - etl-net
     volumes:
@@ -214,7 +214,7 @@ services:
       - AIRFLOW__LOGGING__ENCRYPT_S3_LOGS=False
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__SECRETS__USE_CACHE=true
-      - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
+      # - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
 
     networks:
       - etl-net
@@ -254,7 +254,7 @@ services:
       - AIRFLOW__LOGGING__ENCRYPT_S3_LOGS=False
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__SECRETS__USE_CACHE=true
-      - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
+      # - AIRFLOW__LOGGING__LOGGING_LEVEL=ERROR
 
     networks:
       - etl-net
