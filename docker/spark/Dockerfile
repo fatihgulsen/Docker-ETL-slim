@@ -14,6 +14,14 @@ RUN apt-get update && apt-get install -y \
     software-properties-common
 RUN mkdir -p /usr/share/man/man1
 COPY ./jars/ /opt/bitnami/spark/jars/
+
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | tee /etc/apt/trusted.gpg.d/microsoft.asc 
+RUN curl https://packages.microsoft.com/config/debian/11/prod.list | tee /etc/apt/sources.list.d/mssql-release.list 
+RUN apt-get update 
+RUN ACCEPT_EULA=Y apt-get install -y msodbcsql18 
+RUN echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc 
+RUN source ~/.bashrc
+RUN /opt/bitnami/spark/venv/bin/pip install pyodbc==5.0.1
 # RUN apt-get update && apt-get install -y default-jdk && apt-get clean
 # COPY requirements.txt requirements.txt
 # RUN pip install --no-cache-dir -r requirements.txt

@@ -18,6 +18,7 @@ x-sparkworker-common: &sparkworker-common
   volumes:
     - ./mnt/spark/work/:/opt/bitnami/spark/work/
     - ./mnt/spark/logs/:/opt/bitnami/spark/history/
+    - ./mnt/airflow/dags:/opt/bitnami/airflow/dags
     - ./mnt/spark/scripts/:/opt/bitnami/spark/scripts
     - ./docker/spark/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     - ./docker/spark/log4j.properties:/opt/bitnami/spark/conf/log4j.properties
@@ -291,6 +292,7 @@ services:
       - ./mnt/spark/work/:/opt/bitnami/spark/work/
       - ./mnt/spark/logs/:/opt/bitnami/spark/history/
       - ./mnt/spark/scripts/:/opt/bitnami/spark/scripts
+      - ./mnt/airflow/dags:/opt/bitnami/airflow/dags
       - ./docker/spark/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
       - ./docker/spark/log4j.properties:/opt/bitnami/spark/conf/log4j.properties
     depends_on:
