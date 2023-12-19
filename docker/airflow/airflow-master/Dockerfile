@@ -16,7 +16,10 @@ RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql18 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc 
 RUN source ~/.bashrc
-    
+RUN apt-get install -y unixodbc-dev && apt-get install -y libgssapi-krb5-2 && apt install -y odbc-mdbtools
+
+RUN printf $'[MDBTools2]\nDescription=MDBTools Driver\nDriver=/usr/lib/x86_64-linux-gnu/odbc/libmdbodbc.so\nSetup=/usr/lib/x86_64-linux-gnu/odbc/libmdbodbc.so\nFileUsage=1\nUsageCount=1' >> /etc/odbcinst.ini
+
 RUN curl -o hadoop-aws-3.3.4.jar https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar && \
     curl -o aws-java-sdk-bundle-1.12.604.jar https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.604/aws-java-sdk-bundle-1.12.604.jar&& \
     curl -o postgresql-42.3.5.jar https://jdbc.postgresql.org/download/postgresql-42.2.14.jar && \
