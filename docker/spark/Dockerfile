@@ -21,8 +21,6 @@ RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql18 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc 
 RUN source ~/.bashrc
-RUN apt-get install -y unixodbc-dev && apt-get install -y libgssapi-krb5-2 && apt install -y odbc-mdbtools
-RUN printf $'[MDBTools2]\nDescription=MDBTools Driver\nDriver=/usr/lib/x86_64-linux-gnu/odbc/libmdbodbc.so\nSetup=/usr/lib/x86_64-linux-gnu/odbc/libmdbodbc.so\nFileUsage=1\nUsageCount=1' >> /etc/odbcinst.ini
 
 RUN /opt/bitnami/spark/venv/bin/pip install pyodbc==5.0.1
 # RUN apt-get update && apt-get install -y default-jdk && apt-get clean
